@@ -1,0 +1,231 @@
+
+
+body {
+    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    font-family: "poppins","raleway", sans-serif;
+  }
+  .container {
+    margin: 20px auto;
+    padding: 0px;
+    max-width: 700px;
+    background-repeat: no-repeat;
+    text-align: center; 
+  }
+
+  .weather-wrapper{
+    margin: 50px auto;
+    padding: 0px;
+     max-width: 700px;
+    background-color: white;
+  }
+  .icon {
+    padding-top: 30px;
+    text-align: center; 
+  }
+  .current-temp {
+    position: relative;
+    top: -15px;
+    text-align: center; 
+
+  }
+  .live-temp {
+
+    font-size: 100px;
+    color: #E2C044;
+    text-align: center; 
+    text-align: center; 
+  }
+  .convert {
+ 
+    text-transform: uppercase;
+    position: relative;
+    top: -25px;
+    color: #d1e4ea;
+  }
+  .convert .active {
+    color: #868686;
+    cursor: default;
+  }
+  .convert .active:hover {
+    text-decoration: none;
+    cursor: default;
+  }
+  .celsius a {
+    font-size: 14px;
+    position: relative;
+    top: -5px;
+    left: -4px;
+    color: #cdba75;
+    text-decoration: none;
+  }
+  .celsius a:hover {
+    text-decoration: underline;
+  }
+  .separater {
+    font-size: 10x;
+    position: relative;
+    top: -4px;
+    right: 4px;
+    text-align: center; 
+  }
+  .fahrenheit a {
+    font-size: 14px;
+    position: relative;
+    top: -5px;
+    left: -4px;
+    color: #cdba75;
+    text-decoration: none;
+  }
+  .fahrenheit a:hover {
+    text-decoration: underline;
+  }
+  .stats {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #a6a292;
+    text-transform: uppercase;
+    text-align: center; 
+  }
+  h1 {
+    
+    text-transform: uppercase;
+    color:#587B7F;
+    font-size: 50px;
+    letter-spacing: 10px;
+    text-align: center; 
+  }
+  h3{
+
+    padding-bottom: 5px;
+    padding-top: 0px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #c8d9eb;
+ 
+    letter-spacing: 5px;
+    text-align: center; 
+
+
+
+
+  }
+  h2 {
+    padding-bottom: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #393e41;
+   
+    letter-spacing: 5px;
+    text-align: center; 
+  }
+  .forecast {
+    background: #fff;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    text-align: center; 
+  }
+  .row {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center; 
+  }
+  .forecast-bg {
+    max-width: 100px;
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 4px;
+   
+  }
+  .forecast-day {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aeafb0;
+  }
+  .temp-max {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    color: #6c757d;
+  }
+  .temp-min {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    color: #b4abc6;
+  }
+  form{
+    width: 700px;
+    margin-left: 0px;
+    text-align: left;
+  }
+  .search-form{
+    margin-left: 100px;
+    width: 200px;
+  }
+  .search {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 700px;
+    margin-right: 0px;
+  }
+  .search-box {
+    width: 474px;
+    padding: 2px 2px 5px 2px;
+  
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    color: #a6a6a6;
+  }
+  .search-button {
+    background: #bdd1e0;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #bdd1e0;
+    border-radius: 4px;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  .search-button:hover {
+    background: #fff;
+    border: 1px solid #bdd1e0;
+    color: #bdd1e0;
+  }
+  .bottom {
+    background: #fff;
+    padding: 10px;
+  }
+  .credit {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #b3a9d7;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  .credit a {
+    color: #b3a9d7;
+    text-decoration: none;
+  }
+  .credit a:hover {
+    color: #e7b5d2;
+  }
+  #serach-button{
+    color: #a6a4a0;
+
+  }
+  #current-location-button{
+    color: #a6a4a0;
+  }
+  #icon{
+    color: #a6a4a0;
+  }
+  .active {
+    color: #6c757d;
+    text-decoration: none;
+  }
+  .active:hover{
+    cursor: default;
+  }
