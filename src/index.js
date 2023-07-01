@@ -18,6 +18,7 @@ function displayWeather(response){
  
  
  
+ 
    }
  
  function searchLocation(position){
@@ -147,10 +148,47 @@ function displayWeather(response){
  
  
  let celsiusTemperature = null ;
- 
+
  
  let fahrenheitlink= document.querySelector("#fareheint-link");
  fahrenheitlink.addEventListener("click",changefahrenheit);
  
  
- searchCity("Italy")
+
+
+
+
+  searchCity("Italy")
+
+  
+
+
+ function displayForecast(){
+  let forecast= document.querySelector("#forecast");
+  let forecastHTML = `<div class ="row">`;
+  let days = ["sun", "Mon","Tue","Wen","Thu","fri"];
+  days.forEach (function(day){
+ forecastHTML = forecastHTML + 
+ `
+  <div class="col-2">
+    <div class="forecast-day"> ${day}</div>
+    <img
+    src="https://openweathermap.org/img/wn/04d@2x.png"
+    alt=""
+    width="36"/>
+ 
+  <div class="forecast-temp">
+    <span class="temp-max">18° </span>
+    <span class="temp-min"> 15°</span>
+  </div>
+ </div>
+ 
+ `;
+  });
+ 
+ forecastHTML=forecastHTML + `</div>`;
+ forecast.innerHTML = forecastHTML;
+ }
+  
+ 
+ displayForecast();
