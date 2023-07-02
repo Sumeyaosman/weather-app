@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 function displayWeather(response){
     let roundedTemp = document.querySelector("#live-temp,#celcius")
      roundedTemp.innerHTML= Math.round(response.data.main.temp);
@@ -14,11 +22,10 @@ function displayWeather(response){
     icon.setAttribute( "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`)
     icon.setAttribute("alt",response.data.weather[0].description);
- celsiusTemperature= response.data.main.temp;
- 
- 
- 
- 
+    celsiusTemperature= response.data.main.temp;
+
+    getForecast(response.data.coord);
+
    }
  
  function searchLocation(position){
@@ -66,7 +73,9 @@ function displayWeather(response){
       let searchForm = document.querySelector("#search-form");
        searchForm.addEventListener("submit",press);
  
- 
+
+       searchCity("Italy") 
+
    
    let calendar = new Date();
    let days = [
@@ -158,9 +167,18 @@ function displayWeather(response){
 
 
 
-  searchCity("Italy")
-
   
+
+function getForecast(coordinates){
+
+console.log(coordinates);
+  let apiKey = "eae061c95483dd066657bfc7525418ed";
+  let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=eae061c95483dd066657bfc7525418ed&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+  }
+
+
 
 
  function displayForecast(){
