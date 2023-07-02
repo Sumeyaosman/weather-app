@@ -1,5 +1,83 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response){
+ 
+
+  let forecast = response.data.daily;
+ console.log(forecast);
+  let forecastElement= document.querySelector("#forecast");
+  let forecastHTML = `<div class ="row">`;
+
+ 
+  forecast.forEach (function(forecastDay, index){
+    if (index < 6){
+
+ forecastHTML = 
+ forecastHTML + 
+ `
+  <div class="col-2">
+    <div class="forecast-day"> ${formatDay(forecastDay.dt)}</div>
+    <img
+    src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+    alt=""
+    width="36"/>
+ 
+  <div class="forecast-temp">
+    <span class="temp-max">${Math.round(forecastDay.temp.max)}° </span>
+    <span class="temp-min"> ${Math.round(forecastDay.temp.min)}°</span>
+  </div>
+ </div>
+ 
+ `;
+}
+  });
+ 
+ forecastHTML=forecastHTML + `</div>`;
+ forecastElement.innerHTML = forecastHTML;
+ }
 
 
+
+ function getForecast(coordinates){
+
+  console.log(coordinates);
+    let apiKey = "eae061c95483dd066657bfc7525418ed";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=eae061c95483dd066657bfc7525418ed&units=metric`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+    }
+  
+  
 
 
 
@@ -77,58 +155,7 @@ function displayWeather(response){
        searchCity("Italy") 
 
    
-   let calendar = new Date();
-   let days = [
-     "Sunday",
-     "Monday",
-     "Tuesday",
-     "Wednesday",
-     "Thursday",
-     "Friday",
-     "Saturday",
-   ];
-   let day = days[calendar.getDay()];
-   let months = [
-     "Jan",
-     "Feb",
-     "Mar",
-     "Apr",
-     "May",
-     "Jun",
-     "Jul",
-     "Aug",
-     "Sep",
-     "Oct",
-     "Nov",
-     "Dec",
-   ];
-   let month = months[calendar.getMonth()];
-   let date2 = calendar.getDate();
-   let year = calendar.getFullYear();
    
-   function hours12() {
-     return (currentTime.getHours() + 24) % 12 || 12;
-   }
-   
-   let currentTime = new Date();
-   let hour = currentTime.getHours();
-   if (hour === 10) {
-     hour = `${hour}0`;
-   }
-   let minute = currentTime.getMinutes();
-   if (minute < 10) {
-     minute = `0${minute}`;
-   }
-   
-   let date = document.querySelector("#current-date");
-   date.innerHTML = `${day} | ${month} ${date2} | ${hours12(hour)}:${minute}`;
-   
-   function formatDay(timestamp) {
-     let date = new Date(timestamp * 1000);
-     let day = date.getDay();
-     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-     return days[day];
-   }
  
  //convert
  
@@ -169,44 +196,7 @@ function displayWeather(response){
 
   
 
-function getForecast(coordinates){
-
-console.log(coordinates);
-  let apiKey = "eae061c95483dd066657bfc7525418ed";
-  let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=eae061c95483dd066657bfc7525418ed&units=metric`;
-  console.log(apiUrl);
-  axios.get(apiUrl).then(displayForecast);
-  }
 
 
 
-
- function displayForecast(){
-  let forecast= document.querySelector("#forecast");
-  let forecastHTML = `<div class ="row">`;
-  let days = ["sun", "Mon","Tue","Wen","Thu","fri"];
-  days.forEach (function(day){
- forecastHTML = forecastHTML + 
- `
-  <div class="col-2">
-    <div class="forecast-day"> ${day}</div>
-    <img
-    src="https://openweathermap.org/img/wn/04d@2x.png"
-    alt=""
-    width="36"/>
  
-  <div class="forecast-temp">
-    <span class="temp-max">18° </span>
-    <span class="temp-min"> 15°</span>
-  </div>
- </div>
- 
- `;
-  });
- 
- forecastHTML=forecastHTML + `</div>`;
- forecast.innerHTML = forecastHTML;
- }
-  
- 
- displayForecast();
