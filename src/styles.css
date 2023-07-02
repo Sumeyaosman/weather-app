@@ -203,6 +203,10 @@ body {
     color: #6c757d;
     text-decoration: none;
   }
+   a{
+    color: #95b3c5;
+    text-decoration: underline;
+  }
   .active:hover{
     cursor: default;
   }
